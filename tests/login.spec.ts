@@ -8,22 +8,19 @@ test.describe("Funcionalidade: Tela de Login", async () => {
         page = await browser.newPage()
     })
 
-
-    test("Login com sucesso", async () =>{
+    test("Cenário 01: Login com sucesso", async () =>{
         const loginPage = new LoginPage(page)
 
         await loginPage.login(process.env.BASE_URL, process.env.USER, process.env.PASS)
         await loginPage.validateLoginSucesso("Products")
     })
 
-
-    test("Login com falha", async () =>{
+    test("Cenário 02: Login com falha", async () =>{
         const loginPage = new LoginPage(page)
 
         await loginPage.login(process.env.BASE_URL, "problem_user", "123")
         await loginPage.validateLoginFalha("Epic sadface: Username and password do not match any user in this service")
     })
-
 
     test.afterAll(async () => {
         await page.close()

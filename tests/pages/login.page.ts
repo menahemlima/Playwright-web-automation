@@ -5,6 +5,8 @@ export class LoginPage {
     readonly txtUsername: Locator
     readonly txtPassword: Locator
     readonly btnLogin: Locator
+    readonly btnMenu: Locator
+    readonly btnReset: Locator
     readonly txtTitle: Locator
     readonly txtErrorMessage: Locator
 
@@ -13,6 +15,8 @@ export class LoginPage {
         this.txtUsername = page.locator('#user-name')
         this.txtPassword = page.locator('input[name=password]')
         this.btnLogin = page.locator('.submit-button.btn_action')
+        this.btnReset = page.getByText('Reset App State')
+        this.btnMenu = page.locator('#react-burger-menu-btn')
         this.txtTitle = page.locator('.title')
         this.txtErrorMessage = page.getByTestId('.error')
     }
@@ -36,5 +40,10 @@ export class LoginPage {
         const text = await this.page.textContent('h3')
 
         await expect(text).toEqual(errorMessage)
+    }
+
+    async resetApp() {
+        await this.btnMenu.click()
+        await this.btnReset.click()
     }
 }
