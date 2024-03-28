@@ -1,6 +1,6 @@
 import { Page, expect, Locator } from '@playwright/test'
 
-export class ProductPage {
+export class ShoppingCartPage {
     readonly page: Page
     readonly optBackpack: Locator
     readonly optBikeLight: Locator
@@ -61,6 +61,11 @@ export class ProductPage {
         await expect(this.nameItem).not.toBeVisible()
         await expect(this.descItem).not.toBeVisible()
         await expect(this.priceItem).not.toBeVisible()
+    }
+
+    async accessShoppinCart() {
+        await this.page.waitForLoadState()
+        await this.btnShoppingCart.click()
     }
 
 }

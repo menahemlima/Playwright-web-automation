@@ -30,11 +30,9 @@ export class LoginPage {
         await this.page.waitForLoadState()
     }
 
-
     async validateLoginSucesso(titulo) {
         await expect(this.txtTitle).toContainText(titulo)
     }
-    
 
     async validateLoginFalha(errorMessage) {
         const text = await this.page.textContent('h3')
