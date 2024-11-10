@@ -1,6 +1,7 @@
 import { Page, expect, Locator } from '@playwright/test'
+import { loginLocators } from '../locators/loginLocators.ts';
 
-export class LoginPage {
+export class LoginPage{
     readonly page: Page
     readonly txtUsername: Locator
     readonly txtPassword: Locator
@@ -12,13 +13,13 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page
-        this.txtUsername = page.locator('#user-name')
-        this.txtPassword = page.locator('input[name=password]')
-        this.btnLogin = page.locator('.submit-button.btn_action')
-        this.btnReset = page.getByText('Reset App State')
-        this.btnMenu = page.locator('#react-burger-menu-btn')
-        this.txtTitle = page.locator('.title')
-        this.txtErrorMessage = page.getByTestId('.error')
+        this.txtUsername = page.locator(loginLocators.txtUsername)
+        this.txtPassword = page.locator(loginLocators.txtPassword)
+        this.btnLogin = page.locator(loginLocators.btnLogin)
+        this.btnReset = page.getByText(loginLocators.btnReset)
+        this.btnMenu = page.locator(loginLocators.btnMenu)
+        this.txtTitle = page.locator(loginLocators.txtTitle)
+        this.txtErrorMessage = page.getByTestId(loginLocators.txtErrorMessage)
     }
 
     async login(url, user, password) {
