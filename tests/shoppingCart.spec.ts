@@ -1,6 +1,6 @@
 import { test, Page } from "@playwright/test"
-import { LoginPage } from "./pages/1.login.page"
-import { ShoppingCartPage } from "./pages/2.shopping_cart.page"
+import { LoginPage } from "../pages/loginPage"
+import { ShoppingCartPage } from "../pages/shopping_cartPage"
 
 test.describe("Funcionalidade: Tela de Carrinho de Compras", async () => {
     let page: Page

@@ -1,7 +1,7 @@
 import {test, Page } from "@playwright/test"
-import { LoginPage } from "./pages/1.login.page"
-import { ShoppingCartPage } from "./pages/2.shopping_cart.page"
-import { CheckoutPage } from "./pages/3.checkout.page"
+import { LoginPage } from "../pages/loginPage"
+import { ShoppingCartPage } from "../pages/shopping_cartPage"
+import { CheckoutPage } from "../pages/checkoutPage"
 import { faker } from '@faker-js/faker'
 
 test.describe("Funcionalidade: Tela de Checkout", async () => {

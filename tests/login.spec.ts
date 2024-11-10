@@ -1,5 +1,5 @@
 import { test, Page } from "@playwright/test"
-import { LoginPage } from "./pages/1.login.page"
+import { LoginPage } from "../pages/loginPage"
 
 test.describe("Funcionalidade: Tela de Login", async () => {
     let page: Page
