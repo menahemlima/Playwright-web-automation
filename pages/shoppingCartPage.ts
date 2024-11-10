@@ -1,4 +1,5 @@
 import { Page, expect, Locator } from '@playwright/test'
+import {shoppingCartLocators} from '../locators/shoppingCartLocators'
 
 export class ShoppingCartPage {
     readonly page: Page
@@ -16,17 +17,17 @@ export class ShoppingCartPage {
 
     constructor(page: Page) {
         this.page = page
-        this.optBackpack = page.locator('#add-to-cart-sauce-labs-backpack')
-        this.optBikeLight = page.locator('#add-to-cart-sauce-labs-bike-light')
-        this.btnShoppingCart = page.locator('.shopping_cart_link')
-        this.iconCart = page.locator('.shopping_cart_badge')
-        this.qtdCart = page.locator('.cart_quantity')
-        this.nameItem = page.locator('.inventory_item_name')
-        this.descItem = page.locator('.inventory_item_desc')
-        this.priceItem = page.locator('.inventory_item_price')
-        this.btnContinue = page.getByText('Continue Shopping')
-        this.btnCheckout = page.getByText('Checkout')
-        this.btnRemove = page.getByText('Remove')
+        this.optBackpack = page.locator(shoppingCartLocators.optBackpack)
+        this.optBikeLight = page.locator(shoppingCartLocators.optBikeLight)
+        this.btnShoppingCart = page.locator(shoppingCartLocators.btnShoppingCart)
+        this.iconCart = page.locator(shoppingCartLocators.iconCart)
+        this.qtdCart = page.locator(shoppingCartLocators.qtdCart)
+        this.nameItem = page.locator(shoppingCartLocators.nameItem)
+        this.descItem = page.locator(shoppingCartLocators.descItem)
+        this.priceItem = page.locator(shoppingCartLocators.priceItem)
+        this.btnContinue = page.getByText(shoppingCartLocators.btnContinue)
+        this.btnCheckout = page.getByText(shoppingCartLocators.btnCheckout)
+        this.btnRemove = page.getByText(shoppingCartLocators.btnRemove)
     }
 
     async addProduct(product, iconValue, qtd, nameItem, descItem, priceItem) {

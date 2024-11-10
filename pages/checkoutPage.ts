@@ -1,4 +1,5 @@
 import { Page, expect, Locator } from '@playwright/test'
+import { checkoutLocators } from '../locators/checkoutLocators.ts';
 
 export class CheckoutPage {
     readonly page: Page
@@ -10,11 +11,11 @@ export class CheckoutPage {
 
     constructor(page: Page) {
         this.page = page
-        this.txtFirstName = page.locator('#first-name')
-        this.txtLastName = page.locator('#last-name')
-        this.txtPostalCode = page.locator('#postal-code')
-        this.btnContinue = page.getByText('Continue')
-        this.btnCheckout = page.getByText('Checkout')
+        this.txtFirstName = page.locator(checkoutLocators.txtFirstName)
+        this.txtLastName = page.locator(checkoutLocators.txtLastName)
+        this.txtPostalCode = page.locator(checkoutLocators.txtPostalCode)
+        this.btnContinue = page.getByText(checkoutLocators.btnContinue)
+        this.btnCheckout = page.getByText(checkoutLocators.btnCheckout)
     }
 
     async validateFirstNameField(errorMessage) {
