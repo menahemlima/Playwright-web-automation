@@ -14,7 +14,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : 1,
   reporter: 'html',
   use: {
-    headless: false,
+    headless: true,
     screenshot:'on',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
