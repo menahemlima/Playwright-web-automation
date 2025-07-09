@@ -10,8 +10,8 @@ export default defineConfig({
     timeout: 6000
   },
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 1,
-  workers: process.env.CI ? 2 : 1,
+  retries: process.env.CI ? 1 : 1,
+  workers: process.env.CI ? 1 : 1,
   reporter: 'html',
   use: {
     headless: true,
