@@ -13,9 +13,4 @@ test.describe("Funcionalidade: Tela de Carrinho de Compras", async () => {
         await shoppingCartPage.addProduct(2, "1", "1", "Sauce Labs Bike Light", item.description02, '9.99')
         await shoppingCartPage.removeProductOfCart()
     })
-
-    test.afterEach(async ({loginPage}) => {
-        await loginPage.resetApp()
-    })
-
 })

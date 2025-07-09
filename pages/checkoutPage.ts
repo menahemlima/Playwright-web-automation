@@ -9,7 +9,7 @@ export class CheckoutPage {
     }
 
     async validateFirstNameField(errorMessage) {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await this.page.getByText(checkoutLocators.btnCheckout).click()
         await this.page.getByText(checkoutLocators.btnContinue).click()
 
@@ -18,7 +18,7 @@ export class CheckoutPage {
     }
 
     async validateLastNameField(firstName, errorMessage) {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await this.page.getByText(checkoutLocators.btnCheckout).click()
         await this.page.getByText(checkoutLocators.btnContinue).click()
         await this.page.fill(checkoutLocators.txtFirstName, firstName)
@@ -29,7 +29,7 @@ export class CheckoutPage {
     }
 
     async validatePostalCodeField(firstName, lastName, errorMessage) {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await this.page.getByText(checkoutLocators.btnCheckout).click()
         await this.page.fill(checkoutLocators.txtFirstName, firstName)
         await this.page.fill(checkoutLocators.txtLastName, lastName)

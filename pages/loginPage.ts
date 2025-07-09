@@ -10,14 +10,14 @@ export class LoginPage{
 
     async login(url, user, password) {
         await this.page.goto(url)
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await this.page.fill(loginLocators.txtUsername, user)
         await this.page.fill(loginLocators.txtPassword, password)
-        await this.page.click(loginLocators.btnLogin)
-        await this.page.waitForLoadState()
+        await this.page.click(loginLocators.btnLogin)        
     }
 
     async validateLoginSucesso(titulo: string) {
+        await this.page.waitForLoadState('networkidle')
         await expect(this.page.locator(loginLocators.txtTitle)).toContainText(titulo)
     }
     

@@ -31,7 +31,7 @@ export class ShoppingCartPage {
 
     async removeProductOfCart() {
         await this.page.getByText(shoppingCartLocators.btnRemove).click()
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await expect(this.page.getByText(shoppingCartLocators.btnContinue)).toBeVisible()
         await expect(this.page.getByText(shoppingCartLocators.btnRemove)).not.toBeVisible()
         await expect(this.page.getByText(shoppingCartLocators.btnCheckout)).toBeVisible()
@@ -43,7 +43,7 @@ export class ShoppingCartPage {
     }
 
     async accessShoppinCart() {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
         await this.page.click(shoppingCartLocators.btnShoppingCart)
     }
 

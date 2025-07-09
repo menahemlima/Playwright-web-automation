@@ -10,7 +10,7 @@ export default defineConfig({
     timeout: 6000
   },
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 1,
   workers: process.env.CI ? 2 : 1,
   reporter: 'html',
   use: {
@@ -26,19 +26,32 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], 
+        launchOptions: {
+          slowMo: 300,
+        },
+      },
+      
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'], 
+        launchOptions: {
+          slowMo: 300,
+        },
+      },
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'],
-        deviceScaleFactor: 1
+        deviceScaleFactor: 1,
+        launchOptions: {
+          slowMo: 300,
+        },
        },
+       
     },
 
     /* Test against mobile viewports. */

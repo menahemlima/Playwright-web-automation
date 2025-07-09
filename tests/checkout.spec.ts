@@ -21,8 +21,4 @@ test.describe("Funcionalidade: Tela de Checkout", async () => {
         await shoppingCartPage.accessShoppinCart()
         await checkoutPage.validatePostalCodeField(faker.person.firstName(), faker.person.lastName(), "Error: Postal Code is required")
     })
-
-    test.afterEach(async ({loginPage}) => {
-        await loginPage.resetApp()
-    })
 })
